@@ -9,6 +9,8 @@ public class ProjectileManager : MonoBehaviour
 
     [SerializeField] private GameObject[] projectilePrefabs;
 
+    [SerializeField] private ParticleSystem impactParticleSyetem;
+
     private void Awake()
     {
         instance = this;
@@ -27,10 +29,19 @@ public class ProjectileManager : MonoBehaviour
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
 
         // 탄환 초기화 (이동 방향 및 무기 핸들러 정보 설정)
-        projectileController.Init(direction, rangeWeaponHandler);
+        projectileController.Init(direction, rangeWeaponHandler, this);
     }
 
+    public void CreateImpactParticlesAtPosition(Vector3 position, RangeWeaponHandler weaponHandler)
+    {
+        impactParticleSyetem.transform.position = position;
+        ParticleSystem.EmissionModule em = impactParticleSyetem.emission;
+        em.SetBurst(0, new ParticleSystem.Burst(0, Mathf.Ceil(weaponHandler.BulletSize * 5)));
 
+        ParticleSystem.MainModule mainModule = impactParticleSyetem.main;
+        mainModule.startSpeedMultiplier = weaponHandler.BulletSize * 10f;
+        impactParticleSyetem.Play();
+    }
 
 
 

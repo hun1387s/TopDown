@@ -18,6 +18,8 @@ public class ProjectileController : MonoBehaviour
 
     public bool fxOnDestroy = true;
 
+    ProjectileManager projectileManager;
+
 
     private void Awake()
     {
@@ -68,8 +70,10 @@ public class ProjectileController : MonoBehaviour
     }
 
     // 투사체 초기화 함수
-    public void Init(Vector2 direction, RangeWeaponHandler weaponHandler)
+    public void Init(Vector2 direction, RangeWeaponHandler weaponHandler, ProjectileManager projectileManager)
     {
+        this.projectileManager = projectileManager;
+
         // 무기 핸들러 정보 저장
         rangeWeaponHandler = weaponHandler;
 
@@ -101,6 +105,11 @@ public class ProjectileController : MonoBehaviour
     // 투사체를 제거하는 함수
     private void DestroyProjectile(Vector3 position, bool createFx)
     {
+        if(createFx)
+        {
+            projectileManager.CreateImpactParticlesAtPosition(position, rangeWeaponHandler);
+        }
+
         // 현재 오브젝트를 삭제
         Destroy(this.gameObject);
     }
