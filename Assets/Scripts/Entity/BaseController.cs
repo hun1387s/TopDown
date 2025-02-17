@@ -21,11 +21,12 @@ public class BaseController : MonoBehaviour
     private float knockbackDuration = 0f;
 
     protected AnimationHandler animationHandler;
-
+    protected StatHandler statHandler;
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         animationHandler = GetComponent<AnimationHandler>();
+        statHandler = GetComponent<StatHandler>();
     }
 
     protected virtual void Start()
@@ -56,8 +57,8 @@ public class BaseController : MonoBehaviour
     // 캐릭터의 이동을 담당하는 함수
     private void Movement(Vector2 direction)
     {
-        // 기본 이동 속도를 증가시킴 (배율: 5)
-        direction = direction * 5;
+        // 기본 이동 속도를 증가시킴 (배율: Speed)
+        direction = direction * statHandler.Speed;
 
         // 넉백 상태일 경우 이동 속도를 감소시키고 넉백 벡터를 추가함
         if (knockbackDuration > 0.0f)
