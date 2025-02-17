@@ -1001,7 +1001,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1342,14 +1342,14 @@ Tilemap:
   - m_RefCount: 16
     m_Data: {fileID: 11400000, guid: db2bfca54b028474b92768b5506b1a77, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 711d3b987d29dcc4c802ffb844f4efa3, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: c91fb8dd0a44f8549957b70f1196a301, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: 21300000, guid: 95b580d7af2f9e744a8e2f5cd8ce9ac2, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 711d3b987d29dcc4c802ffb844f4efa3, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 3177fe72d22adaf4b93a24b599cadad3, type: 3}
   - m_RefCount: 1
@@ -3824,6 +3824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1793781264}
   - component: {fileID: 1793781265}
+  - component: {fileID: 1793781266}
   m_Layer: 0
   m_Name: MainSprite
   m_TagString: Untagged
@@ -3898,6 +3899,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1793781266
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793781263}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 228cac8601909894183a73df738d50b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1987809456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,6 +3931,7 @@ GameObject:
   - component: {fileID: 1987809459}
   - component: {fileID: 1987809458}
   - component: {fileID: 1987809457}
+  - component: {fileID: 1987809461}
   - component: {fileID: 1987809460}
   m_Layer: 0
   m_Name: Player
@@ -4020,6 +4043,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 1793781265}
   weaponPivot: {fileID: 772606047}
+--- !u!114 &1987809461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987809456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6654271f328974841aa4fbed8cd266cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -20,9 +20,12 @@ public class BaseController : MonoBehaviour
     private Vector2 knockback = Vector2.zero;
     private float knockbackDuration = 0f;
 
+    protected AnimationHandler animationHandler;
+
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        animationHandler = GetComponent<AnimationHandler>();
     }
 
     protected virtual void Start()
@@ -65,6 +68,8 @@ public class BaseController : MonoBehaviour
 
         // Rigidbody를 이용하여 실제 이동을 적용
         _rigidbody.velocity = direction;
+
+        animationHandler.Move(direction);
     }
 
     // 캐릭터의 방향을 회전시키는 함수
