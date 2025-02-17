@@ -243,7 +243,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 950519993}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &687640788
@@ -1419,7 +1420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 772606047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3037,7 +3038,7 @@ GameObject:
   - component: {fileID: 884408398}
   - component: {fileID: 884408397}
   - component: {fileID: 884408399}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3803,7 +3804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950519991}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3812,6 +3813,53 @@ Transform:
   - {fileID: 695162596}
   - {fileID: 687640789}
   - {fileID: 884408396}
+  m_Father: {fileID: 598878700}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1646821536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1646821538}
+  - component: {fileID: 1646821537}
+  m_Layer: 0
+  m_Name: ProjectileManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1646821537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646821536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a732d797ae69f9a46b1c69b229e6dde7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progectilePrefabs:
+  - {fileID: 7548001680914165254, guid: 5b2494fb4fc1d9345855232ea996d882, type: 3}
+  - {fileID: 317313476372811862, guid: 5689144a8d16417438df32ba8eda41d7, type: 3}
+--- !u!4 &1646821538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646821536}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.000009525567, y: -0.34042776, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1793781263
@@ -3825,7 +3873,7 @@ GameObject:
   - component: {fileID: 1793781264}
   - component: {fileID: 1793781265}
   - component: {fileID: 1793781266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3935,7 +3983,7 @@ GameObject:
   - component: {fileID: 1987809460}
   - component: {fileID: 1987809462}
   - component: {fileID: 1987809463}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4092,4 +4140,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1987809459}
   - {fileID: 598878700}
-  - {fileID: 950519993}
+  - {fileID: 1646821538}
