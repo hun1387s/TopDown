@@ -69,7 +69,7 @@ public class BaseController : MonoBehaviour
     }
 
     // 캐릭터의 이동을 담당하는 함수
-    private void Movement(Vector2 direction)
+    protected virtual void Movement(Vector2 direction)
     {
         // 기본 이동 속도를 증가시킴 (배율: Speed)
         direction = direction * statHandler.Speed;
@@ -83,8 +83,9 @@ public class BaseController : MonoBehaviour
 
         // Rigidbody를 이용하여 실제 이동을 적용
         _rigidbody.velocity = direction;
-
+        
         animationHandler.Move(direction);
+
     }
 
     // 캐릭터의 방향을 회전시키는 함수

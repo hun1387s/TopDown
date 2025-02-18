@@ -54,6 +54,7 @@ public class EnemyManager : MonoBehaviour
         {
             yield return new WaitForSeconds(timeBetweenSpawns); // 적 스폰 간격 대기
             SpawnRandomEnemy(); // 랜덤 적 생성
+            SpawnRandomEnemy(); // 랜덤 적 생성
         }
 
         enemySpawnComplite = true;
