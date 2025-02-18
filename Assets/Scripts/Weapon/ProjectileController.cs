@@ -73,7 +73,7 @@ public class ProjectileController : MonoBehaviour
                     BaseController controller = collision.GetComponent<BaseController>();
                     if (controller != null)
                     {
-                        controller.ApplyKnockback(transform, rangeWeaponHandler.KnockbackPower, rangeWeaponHandler.Duration);
+                        controller.ApplyKnockback(transform, rangeWeaponHandler.KnockbackPower, rangeWeaponHandler.KnockbackTime);
                     }
                 }
             }

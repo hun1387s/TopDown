@@ -76,6 +76,7 @@ public class EnemyController : BaseController
                 movementDirection = Vector2.zero; // 공격할 때 이동 정지
                 return;
             }
+            movementDirection = direction;
         }
     }
 
