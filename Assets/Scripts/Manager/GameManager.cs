@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int currentWaveIndex = 0; // 현재 웨이브 인덱스
 
     EnemyManager enemyManager; // 적 매니저 참조
+    UIManager uiManager; // UI 매니저 참조
+    public static bool isFirstLoading = true;
 
     private void Awake()
     {
@@ -21,14 +23,34 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         player.Init(this);
 
+        uiManager = FindObjectOfType<UIManager>();
+
         // 적 매니저 찾고 초기화
         enemyManager = GetComponentInChildren<EnemyManager>();
         enemyManager.Init(this);
+
+
+        _playerResourceController = player.GetComponent<ResourceController>();
+        _playerResourceController.RemoveHealthChangeEvent(uiManager.ChangePlayerHP);
+        _playerResourceController.AddHealthChangeEvent(uiManager.ChangePlayerHP);
+
+    }
+    private void Start()
+    {
+        if (!isFirstLoading)
+        {
+            StartGame();
+        }
+        else
+        {
+            isFirstLoading = false;
+        }
     }
 
     // 게임을 시작하는 함수
     public void StartGame()
     {
+        uiManager.SetPlayGame();
         StartNextWave(); // 첫 번째 웨이브 시작
     }
 
@@ -37,6 +59,7 @@ public class GameManager : MonoBehaviour
     {
         currentWaveIndex += 1; // 웨이브 인덱스 증가
         enemyManager.StartWave(1 + currentWaveIndex / 5); // 웨이브 개수 조정
+        uiManager.ChangeWave(currentWaveIndex);
     }
 
     // 웨이브가 끝났을 때 호출되는 함수
@@ -49,14 +72,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         enemyManager.StopWave(); // 적 스폰 중지
-    }
-
-    private void Update()
-    {
-        // 스페이스바를 누르면 게임 시작
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartGame();
-        }
+        uiManager.SetGameOver(); 
     }
 }
