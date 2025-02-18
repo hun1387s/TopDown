@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerController : BaseController
 {
     private Camera cameraMain;
+    GameManager gameManager;
 
-    protected override void Start()
+    public void Init(GameManager gameMgr)
     {
-        base.Start();
+        this.gameManager = gameMgr;
         cameraMain = Camera.main;
     }
 

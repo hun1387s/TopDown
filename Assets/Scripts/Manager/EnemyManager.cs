@@ -17,9 +17,22 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] float timeBetweenSpawns = 0.2f; // 적 스폰 간격
     [SerializeField] float timeBetweenWaves = 1f; // 웨이브 간격
 
+    GameManager gameManager;
+
+    public void Init(GameManager gameMgr)
+    {
+        this.gameManager = gameMgr;
+    }
+
     // 웨이브 시작 함수
     public void StartWave(int waveCount)
     {
+        if (waveCount <= 0)
+        {
+            gameManager.EndOfWave();
+            return;
+        }
+
         if (waveRoutine != null)
             StopCoroutine(waveRoutine); // 기존 웨이브 중지
         waveRoutine = StartCoroutine(SpawnWave(waveCount)); // 새로운 웨이브 시작
@@ -88,14 +101,4 @@ public class EnemyManager : MonoBehaviour
             Gizmos.DrawCube(center, size); // 기즈모로 스폰 영역을 시각화
         }
     }
-
-    // 특정 키 입력 시 웨이브 시작 (테스트용)
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartWave(1);
-        }
-    }
-
 }
