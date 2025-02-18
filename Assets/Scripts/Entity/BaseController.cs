@@ -109,7 +109,7 @@ public class BaseController : MonoBehaviour
     }
 
     // 캐릭터가 넉백을 받을 때 호출되는 함수
-    public void AppluKnockback(Transform other, float power, float duration)
+    public void ApplyKnockback(Transform other, float power, float duration)
     {
         // 넉백 지속 시간을 설정
         knockbackDuration = duration;
@@ -141,5 +141,23 @@ public class BaseController : MonoBehaviour
             weaponHandler?.Attack();
     }
 
+    public virtual void Death()
+    {
+        _rigidbody.velocity = Vector3.zero;
+
+        foreach(SpriteRenderer renderer in transform.GetComponentsInChildren<SpriteRenderer>())
+        {
+            Color color = renderer.color;
+            color.a = 0.3f;
+            renderer.color = color;
+        }
+
+        foreach(Behaviour component in transform.GetComponentsInChildren<Behaviour>())
+        {
+            component.enabled = false;
+        }
+
+        Destroy(gameObject, 2);
+    }
 
 }

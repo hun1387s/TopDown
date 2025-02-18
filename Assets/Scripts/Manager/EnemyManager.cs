@@ -82,6 +82,7 @@ public class EnemyManager : MonoBehaviour
         GameObject spawnEnemy = Instantiate(randomPrefab,
             new Vector3(randomPosition.x, randomPosition.y), Quaternion.identity);
         EnemyController enemyController = spawnEnemy.GetComponent<EnemyController>();
+        enemyController.Init(this, gameManager.player.transform);
 
         activeEnemies.Add(enemyController);
     }
@@ -99,6 +100,15 @@ public class EnemyManager : MonoBehaviour
             Vector3 size = new Vector3(area.width, area.height);
 
             Gizmos.DrawCube(center, size); // 기즈모로 스폰 영역을 시각화
+        }
+    }
+
+    public void RemoveEnemyOnDeath(EnemyController enemy)
+    {
+        activeEnemies.Remove(enemy);
+        if (enemySpawnComplite && activeEnemies.Count == 0)
+        {
+            gameManager.EndOfWave();
         }
     }
 }
