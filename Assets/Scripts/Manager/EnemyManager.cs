@@ -19,6 +19,8 @@ public class EnemyManager : MonoBehaviour
 
     GameManager gameManager;
 
+    [SerializeField] Transform playerTransform;
+
     public void Init(GameManager gameMgr)
     {
         this.gameManager = gameMgr;
@@ -35,6 +37,12 @@ public class EnemyManager : MonoBehaviour
 
         if (waveRoutine != null)
             StopCoroutine(waveRoutine); // 기존 웨이브 중지
+
+        if (true)
+        {
+
+        }
+
         waveRoutine = StartCoroutine(SpawnWave(waveCount)); // 새로운 웨이브 시작
     }
 
