@@ -6,26 +6,19 @@ public class RangeWeaponHandler : WeaponHandler
 {
     [Header("Range Attack Data")]
     [SerializeField] private Transform projectileSpawnPosition;
-
     [SerializeField] private int bulletIndex;
-    public int BulletIndex { get { return bulletIndex; } }
-
     [SerializeField] private float bulletSize = 1f;
-    public float BulletSize { get { return bulletSize; } }
-
     [SerializeField] private float duration;
-    public float Duration { get { return duration; } }
-
     [SerializeField] private float spread;
-    public float Spread { get { return spread; } }
-
     [SerializeField] private int numerofProjectilesPerShot;
-    public int NumerofProjectilesPerShot { get { return numerofProjectilesPerShot; } }
-
     [SerializeField] private float multipleProjectileAngle;
-    public float MultipleProjectileAngle { get { return multipleProjectileAngle; } }
-
     [SerializeField] private Color projectileColor;
+    public int BulletIndex { get { return bulletIndex; } }  
+    public float BulletSize { get { return bulletSize; } }    
+    public float Duration { get { return duration; } }    
+    public float Spread { get { return spread; } }    
+    public int NumerofProjectilesPerShot { get { return numerofProjectilesPerShot; } }    
+    public float MultipleProjectileAngle { get { return multipleProjectileAngle; } }    
     public Color ProjectileColor { get { return projectileColor; } }
 
     private ProjectileManager projectileManager;
