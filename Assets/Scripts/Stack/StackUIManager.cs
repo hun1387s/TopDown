@@ -53,7 +53,7 @@ public class StackUIManager : MonoBehaviour
 
     public void OnClickExit()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0); // 미니게임 탈출
     }
 
     public void UpdateScore()
