@@ -76,7 +76,7 @@ public class TheStack : MonoBehaviour
     {
         if (isGameOver) return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             if (PlaceBlock())
             {

@@ -20024,7 +20024,7 @@ GameObject:
   - component: {fileID: 1833036141}
   - component: {fileID: 1833036140}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MiniGameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
